@@ -1,0 +1,38 @@
+/* 重複しない数字配列をつくる */
+const digit = 9;
+
+const originalNumber = () => {
+  const numberList: number[][] = [];
+  let num = 1;
+
+  // 目的桁数までの数字を総ざらいで出す
+  //（ただし今回は1～9まで）
+  const allNumber = 987654321;
+
+  // 0を持たず、重複ない数字配列をつくってリストに格納
+  // while文で1からぶん回す
+  console.log(allNumber);
+
+  while (num < allNumber) {
+    const numString = String(num);
+    // 重複含めて目的桁数まで進める
+    if (numString.length == digit) {
+      // 該当した数字を配列にする
+      let setList = new Set<number>();
+      for (let i = 0; i < digit; i++) {
+        if (numString[i] !== '0') {
+          setList.add(Number(numString[i]));
+        }
+      }
+      if (setList.size === digit) {
+        console.log(setList);
+      }
+    }
+    num += 1;
+  }
+
+  // 該当した配列のみ出力
+  // console.log(numberList);
+}
+
+originalNumber();
